@@ -1,0 +1,56 @@
+import { useState } from "react";
+import { FC } from "react";
+import { IInputProps } from "./Input.props";
+import { Placeholder, Label, TextField, Wrap, Button } from "./style";
+
+export const Input: FC<IInputProps> = (props): JSX.Element => {
+  const {
+    type = "text",
+    name = "name",
+    autoCapitalize = "off",
+    autoCorrect = "off",
+    value = "",
+    maxLength,
+    placeholder,
+    onEnter,
+  } = props;
+
+  const [innerType, setInnerType] = useState<string>(type);
+
+  const filled = value ? "filled" : undefined;
+  const isPassword = type === "password";
+
+  const handleOnEnter = (e: any) => {
+    onEnter(e.target.value);
+  };
+
+  const changeType = () => {
+    console.log(type);
+    isPassword ? setInnerType("text") : setInnerType("password");
+  };
+
+  return (
+    <Wrap>
+      <Label>
+        <Placeholder className={filled}>{placeholder}</Placeholder>
+        <TextField
+          className={filled}
+          name={name}
+          type={innerType}
+          value={value}
+          autoCapitalize={autoCapitalize}
+          autoCorrect={autoCorrect}
+          maxLength={maxLength}
+          onChange={handleOnEnter}
+        />
+      </Label>
+      <Button
+        type="button"
+        className={isPassword ? filled : undefined}
+        onClick={changeType}
+      >
+        {isPassword ? "Показать" : "Скрыть"}
+      </Button>
+    </Wrap>
+  );
+};

@@ -1,17 +1,50 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { useState } from "react";
+import { StrictMode } from "react";
+import { render } from "react-dom";
+import { createGlobalStyle } from "styled-components";
+import { Input } from "./components/input/Input";
 
-ReactDOM.render(
-  <React.StrictMode>
+export const Fonts = createGlobalStyle`
+  body, input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+  }
+`;
+
+const App = () => {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  return (
+    <>
+      <Fonts />
+      <Input
+        name={"username"}
+        maxLength={75}
+        placeholder={"Телефон, имя пользователя или эл. адрес"}
+        value={username}
+        onEnter={setUsername}
+      />
+      <Input
+        type="password"
+        name={"password"}
+        placeholder={"Пароль"}
+        value={password}
+        onEnter={setPassword}
+      />
+    </>
+  );
+};
+
+render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </StrictMode>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
