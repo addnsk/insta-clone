@@ -5,11 +5,14 @@ export const ButtonStyle = styled.button<IButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+
   width: 100%;
   max-width: 268px;
   height: 30px;
 
+  & *:not(:last-child) {
+    margin-right: 6px;
+  }
   padding: 0 8px;
 
   font-size: 14px;
@@ -37,6 +40,7 @@ export const ButtonStyle = styled.button<IButtonProps>`
 
   & svg {
     width: 16px;
+    height: 16px;
   }
 
   & span {

@@ -10,9 +10,18 @@ export const RoundLoader: FC<IRoundLoaderProps> = ({
 }): JSX.Element => {
   return (
     <Spiner color={color}>
-      {[...Array(12)].map(() => {
-        return <div></div>;
-      })}
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </Spiner>
   );
 };

@@ -13,7 +13,8 @@ export const sheet = {
     activePrimary: "#79b4f4",
     disabledPrimary: "#c6dffa",
 
-    warning: "#E79094",
+    warning: "#E5494F",
+    link: "#123767",
 
     facebook: "#3C5181",
     activeFacebook: "#7886A7",

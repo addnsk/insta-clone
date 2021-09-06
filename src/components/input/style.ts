@@ -5,7 +5,7 @@ const indent = "8px";
 export const Wrap = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 266px;
+  max-width: 268px;
   width: 100%;
   background-color: ${({ theme }) =>
     theme.colors.backgroundGray ? theme.colors.backgroundGray : "#fafafa"};
@@ -14,6 +14,8 @@ export const Wrap = styled.div`
       theme.colors.lightGray ? theme.colors.lightGray : "#dbdbdb"};
   border-radius: ${({ theme }) =>
     theme.radiuses.init ? theme.radiuses.init : "3px"};
+
+  box-sizing: border-box;
 
   &.focused {
     border-color: ${({ theme }) =>
